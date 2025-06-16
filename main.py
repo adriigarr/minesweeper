@@ -32,7 +32,7 @@ print("\nEstado visual del tablero:")
 basic_functions.render_board(board_matrix)
 
 # Hacer clic en una celda en blanco
-basic_functions.click_first_blank(cells)
+basic_functions.click_random_blank(cells)
 
 # Esperar y volver a capturar el estado
 time.sleep(5)

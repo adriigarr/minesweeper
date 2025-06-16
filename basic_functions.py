@@ -2,6 +2,7 @@ import math
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 import time
+import random
 
 """
 name: accept_cookies
@@ -93,6 +94,28 @@ def click_first_blank(cells):
             cell.click()
             break
 
+"""
+name: click_random_blank
+parameters:
+    cells -> list of Selenium WebElement objects
+
+returns:
+    None
+
+This function filters all blank cells (those with class containing 'blank') and selects one at random to click on.
+
+It is useful for testing or simulating a beginner player making a non-strategic move.
+"""
+
+def click_random_blank(cells):
+    blank_cells = [cell for cell in cells if "blank" in cell.get_attribute("class")]
+
+    if not blank_cells:
+        print("⚠️ No blank cells available to click.")
+        return
+
+    cell = random.choice(blank_cells)
+    cell.click()
 
 """
 name: parse_board_to_matrix
